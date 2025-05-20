@@ -1,0 +1,135 @@
+@import url("https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100..900;1,100..900&display=swap");
+:root {
+  background-color: #242424;
+}
+
+body,
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Roboto", sans-serif;
+}
+/* Container principal */
+.container {
+  padding: 40px;
+  width: 100%;
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 20px;
+}
+
+/* Card flip */
+.flipcard {
+  width: 250px;
+  height: 300px;
+  perspective: 1000px; /* Ajoute de la profondeur */
+}
+
+/* Partie interne pour gérer le flip */
+.flipcard_inner {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  transition: transform 0.6s;
+  transform-style: preserve-3d;
+}
+
+/* Active le flip au survol */
+.flipcard:hover .flipcard_inner {
+  transform: rotateY(180deg);
+}
+
+/* Faces des cartes */
+.flipcard_front,
+.flipcard_back {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  backface-visibility: hidden;
+  border-radius: 10px;
+  overflow: hidden;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+/* Face avant */
+.flipcard_front img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* Face arrière */
+.flipcard_back {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  /* background-color: #333; */
+  background-color: #f7f8f9;
+  /* color: #fff; */
+  transform: rotateY(180deg);
+  padding: 20px;
+  text-align: center;
+  border-radius: 10px;
+  box-shadow: 4px 2px 2px #22c55e;
+}
+
+h1 {
+  font-size: 2rem;
+  font-weight: 600;
+  color: #333f51;
+  margin: 15px 0 10px;
+}
+
+h3 {
+  font-size: 1.25rem;
+  font-weight: 500;
+  color: #556987;
+}
+
+p {
+  font-size: 1rem;
+  line-height: 1.5;
+  color: #2a3342;
+}
+
+.socials {
+  margin-top: 14px;
+  display: flex;
+  gap: 10px;
+  justify-content: center;
+}
+
+.social {
+  font-size: 1rem;
+  color: #22c55e;
+  background-color: rgba(255, 255, 255, 0.87);
+  border: 1px solid #22c55e;
+  border-radius: 4px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 44px;
+  height: 44px;
+  transition: background-color 0.5s;
+}
+
+.social:hover {
+  background-color: #22c55e;
+  color: rgba(255, 255, 255, 0.87);
+  transition: background-color 0.5s;
+}
+@media (max-width: 768px) {
+  .container {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  /* .flipcard {
+    width: 90%;
+    height: 180px;
+  } */
+}
